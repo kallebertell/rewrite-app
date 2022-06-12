@@ -1,0 +1,18 @@
+{
+    "rewrites": [
+        { "source": "/about", "destination": "/about-our-company.html" },
+        { "source": "/whitepapers/:match*", "destination": "https://a.storyblok.com/:match*" },
+        { "source": "/md/:match*", "destination": "https://makersden.io/:match*" },
+        {
+        "source": "/:path((?!uk/).*)",
+        "has": [
+            {
+            "type": "header",
+            "key": "x-vercel-ip-country",
+            "value": "GB"
+            }
+        ],
+        "destination": "/uk/:path*"
+        }
+    ]
+}
